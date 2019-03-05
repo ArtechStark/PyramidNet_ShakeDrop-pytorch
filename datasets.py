@@ -22,7 +22,7 @@ def load_dataset(label, batch_size):
     normalizer, data_cls = fetch_bylabel(label)
 
     train_loader = torch.utils.data.DataLoader(
-        data_cls("./data/cifar{}".format(label), train=True, download=True,
+        data_cls("../data/cifar{}".format(label), train=True, download=True,
                  transform=transforms.Compose([
                      transforms.RandomCrop(32, padding=4),
                      transforms.RandomHorizontalFlip(),
@@ -32,7 +32,7 @@ def load_dataset(label, batch_size):
         batch_size=batch_size, shuffle=True, num_workers=2)
 
     test_loader = torch.utils.data.DataLoader(
-        data_cls("./data/cifar{}".format(label), train=False, download=False,
+        data_cls("../data/cifar{}".format(label), train=False, download=False,
                  transform=transforms.Compose([
                      transforms.ToTensor(),
                      normalizer
